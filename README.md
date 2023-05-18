@@ -1,7 +1,7 @@
 # **PL:** Program **Flashcards** umożliwia użytkownikowi zarządzanie zestawem fiszek.
 ## Użytkownik może dodawać, usuwać, importować i eksportować fiszki, zadawać pytania z losowo wybranych fiszek, resetować statystyki oraz wyświetlać logi.
 
-### Jesli na starcie zostły okręślony argument rozruch -import to porgram rozpoczyna się od wczytania fiszek z pliku. Następnie użytkownik może wykonywać różne akcje, podając odpowiednie komendy.
+### Jesli na starcie zostły okręślony argument rozruch `-import` to porgram rozpoczyna się od wczytania fiszek z pliku. Następnie użytkownik może wykonywać różne akcje, podając odpowiednie komendy.
 
 #### Dostępne komendy:
 
@@ -15,7 +15,7 @@
 
 **ask** - zadaje pytania z losowo wybranych fiszek. Użytkownik podaje liczbę pytań, które chce otrzymać.
 
-**exit** - jeśli zostanie okręslony argument -export , program zapisuje fiszki do pliku i następnie wyłacza program.
+**exit** - jeśli zostanie okręslony argument `-export` , program zapisuje fiszki do pliku i następnie wyłacza program.
 
 **log** - zapisuje logi programu do pliku. Użytkownik podaje nazwę pliku, do którego mają zostać zapisane logi.
 
