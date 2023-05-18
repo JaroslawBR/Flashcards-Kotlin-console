@@ -18,7 +18,7 @@ fun readLine(): String {
     return input
 }
 
-fun choose(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>) {
+fun choose(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>, args: Array<String>) {
     println("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):")
     when(readLine()) {
         "add" -> add(mapCard)
@@ -26,7 +26,8 @@ fun choose(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, 
         "import" -> import(mapCard, hardestCard)
         "export" -> export(mapCard, hardestCard)
         "ask" -> askRandom(mapCard, hardestCard)
-        "exit" -> { println("Bye bye!"); exitProcess(0) }
+        "exit" -> { println("Bye bye!"); if (args.contains("-export")) { export(mapCard, hardestCard, args) }
+            exitProcess(0) }
         "log" -> log(logList)
         "hardest card" -> hardest(hardestCard)
         "reset stats" -> resetStats(hardestCard)
@@ -97,9 +98,10 @@ fun remove(mapCard: MutableMap<String, String>){
     println()
 }
 
-fun import(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>){
-    println("File name:")
-    val fileName = readLine()
+fun import(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>, args: Array<String> = arrayOf()){
+    if (!args.contains("-import")) println("File name:")
+    val fileName = if (args.contains("-import")) {
+        args[args.indexOf("-import")+ 1] } else readLine()
     val file = File(fileName)
     var count = 0
     if (file.exists()) {
@@ -125,10 +127,11 @@ fun import(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, 
     println()
 }
 
-fun export(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>){
-    println("File name:")
+fun export(mapCard: MutableMap<String, String>, hardestCard: MutableMap<String, Int>, args: Array<String> = arrayOf()){
+    if (!args.contains("-export")) println("File name:")
     var count = 0
-    val fileDestination = readLine()
+    val fileDestination = if (args.contains("-export")) {
+        args[args.indexOf("-export")+ 1] } else readLine()
     if (File(fileDestination).exists()) File(fileDestination).delete()
     for ((q, d) in mapCard) {
         val newLine = if (!hardestCard.containsKey(q)) {
@@ -174,11 +177,12 @@ fun askRandom(mapCard: MutableMap<String, String>, hardestCard: MutableMap<Strin
     println()
 }
 
-fun main() {
+fun main(args: Array<String> = arrayOf()) {
     val mapCard: MutableMap<String, String> = mutableMapOf()
     val hardestCard: MutableMap<String, Int> = mutableMapOf()
+    if (args.contains("-import")) import(mapCard, hardestCard, args)
     while (true) {
-        choose(mapCard, hardestCard)
+        choose(mapCard, hardestCard, args)
     }
 }
 
