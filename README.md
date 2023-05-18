@@ -1,6 +1,6 @@
 Program "flashcards" umożliwia użytkownikowi zarządzanie zestawem fiszek. Użytkownik może dodawać, usuwać, importować i eksportować fiszki, zadawać pytania z losowo wybranych fiszek, resetować statystyki oraz wyświetlać logi.
 
-Jesli na starcie zostły okręślony argument rozruch -import to porgram rozpoczyna się od wczytania fiszek z pliku, jeśli zostanie przekazana opcja -import z nazwą pliku. Następnie użytkownik może wykonywać różne akcje, podając odpowiednie komendy.
+Jesli na starcie zostły okręślony argument rozruch -import to porgram rozpoczyna się od wczytania fiszek z pliku. Następnie użytkownik może wykonywać różne akcje, podając odpowiednie komendy.
 
 Dostępne komendy:
 
