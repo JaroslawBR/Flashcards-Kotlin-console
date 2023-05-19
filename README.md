@@ -23,6 +23,26 @@
 
 **`reset stats`** - resetuje statystyki najtrudniejszych fiszek.
 
+### Przykład / Example 
+
+```shell
+1 cards have been loaded.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> ask
+How many times to ask?
+> 1
+Print the definition of "O której godzinie zmarał największy polak":
+> 21-37
+Correct!
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> exit
+Bye bye!
+1 cards have been saved.
+```
+
+
 # **ENG:** Program **Flashcards** allows the user to manage a set of flashcards.
 ## Users can add, remove, import, and export flashcards, ask questions from randomly selected flashcards, reset statistics, and display logs.
 
